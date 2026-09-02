@@ -326,10 +326,11 @@
     </div>
 
     <div class="karte" id="karte">
-      <div class="karte-platzhalter" id="karte-platzhalter">
-        <p>Die Karte kommt von Google. Beim Laden wird Ihre IP-Adresse an Google übertragen.</p>
-        <button type="button" id="karte-laden">Karte laden</button>
-      </div>
+      <iframe
+        src="https://www.google.com/maps?q=Fuldaer+Stra%C3%9Fe+13%2C+63584+Gr%C3%BCndau-Rothenbergen&amp;z=16&amp;output=embed"
+        title="Karte mit dem Standort Fuldaer Straße 13, Gründau-Rothenbergen"
+        loading="lazy" allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -412,23 +413,10 @@
   var zeile = document.querySelector('#zeitentabelle tr[data-tag="' + n.tag + '"]');
   if (zeile) zeile.classList.add('heute');
 
-  // Karte erst auf Klick laden (keine Datenübertragung an Google vorher).
-  // Soll die Karte sofort erscheinen: einfach karteLaden() direkt aufrufen.
-  function karteLaden() {
-    var rahmen = document.createElement('iframe');
-    rahmen.src = 'https://www.google.com/maps?q=Fuldaer+Stra%C3%9Fe+13%2C+63584+Gr%C3%BCndau-Rothenbergen&z=16&output=embed';
-    rahmen.title = 'Karte mit dem Standort Fuldaer Straße 13, Gründau-Rothenbergen';
-    rahmen.loading = 'lazy';
-    rahmen.referrerPolicy = 'no-referrer-when-downgrade';
-    rahmen.allowFullscreen = true;
-    var platz = document.getElementById('karte-platzhalter');
-    document.getElementById('karte').appendChild(rahmen);
-    if (platz) platz.remove();
-  }
-  var knopf = document.getElementById('karte-laden');
-  if (knopf) knopf.addEventListener('click', karteLaden);
+  // Hinweis: Die Karte ist jetzt fest im HTML eingebunden und lädt sofort mit.
+  // Dabei geht die IP-Adresse der Besucher an Google – das gehört in die
+  // Datenschutzerklärung.
 })();
 </script>
 </body>
 </html>
-
