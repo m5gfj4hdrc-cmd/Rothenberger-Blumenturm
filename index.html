@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rothenberger Blumenturm – Blumenfachgeschäft in Gründau-Rothenbergen</title>
+<meta name="description" content="Rothenberger Blumenturm, Inh. Oliver Below, Fuldaer Straße 13 in Gründau-Rothenbergen. Sträuße, Pflanzen, Hochzeits- und Trauerfloristik. Mittwoch bis Samstag geöffnet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tief:      #17332a;   /* Tiefgrün, Basis */
+    --tief-hell: #24493c;
+    --papier:    #f1f3ec;   /* helles Blattgrau */
+    --papier-2:  #e5e9df;
+    --mohn:      #c02f45;   /* Akzent, Mohnrot */
+    --ocker:     #d9a341;
+    --stein:     #6d7a6d;   /* Sekundärtext */
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+  body{
+    margin:0;
+    background:var(--papier);
+    color:var(--tief);
+    font-family:"Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;margin:0;line-height:1.05}
+  h2{font-size:clamp(1.9rem,4.5vw,3rem);letter-spacing:-.01em}
+  h3{font-size:1.25rem;line-height:1.25}
+  p{max-width:62ch}
+
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--ocker);outline-offset:3px;border-radius:2px}
+
+  /* ---------- Kopf / Hero ---------- */
+  .hero{background:var(--tief);color:var(--papier);padding:28px 0 0;overflow:hidden}
+  .marke{font-family:"Bodoni Moda",serif;font-size:1.05rem;letter-spacing:.04em;text-decoration:none}
+  .kopfzeile{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .kopfzeile nav{display:flex;gap:22px;font-size:.95rem}
+  .kopfzeile nav a{text-decoration:none;color:#cfd8ce;padding-bottom:2px;border-bottom:1px solid transparent}
+  .kopfzeile nav a:hover{color:var(--papier);border-bottom-color:var(--ocker)}
+
+  .hero-inhalt{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:end;padding:56px 0 20px}
+  .hero h1{font-size:clamp(2.9rem,8.5vw,5.6rem);letter-spacing:-.02em}
+  .hero h1 .erste{display:block;font-style:italic;font-size:.52em;color:#c3d2c2;margin-bottom:.04em;letter-spacing:0}
+  .hero p.lead{color:#d3dcd1;font-size:1.12rem;margin:26px 0 0;max-width:44ch}
+
+  .status{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:9px 16px 9px 13px;
+    border:1px solid rgba(241,243,236,.28);border-radius:999px;font-size:.97rem;background:rgba(241,243,236,.05)}
+  .punkt{width:9px;height:9px;border-radius:50%;background:var(--stein);flex:none}
+  .punkt.offen{background:#7ec27a;box-shadow:0 0 0 4px rgba(126,194,122,.2)}
+  .punkt.zu{background:var(--mohn);box-shadow:0 0 0 4px rgba(192,47,69,.18)}
+
+  .knopfreihe{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .knopf{display:inline-block;padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:1rem}
+  .knopf.voll{background:var(--mohn);color:#fff}
+  .knopf.voll:hover{background:#a82539}
+  .knopf.linie{border:1px solid rgba(241,243,236,.4);color:var(--papier)}
+  .knopf.linie:hover{border-color:var(--papier);background:rgba(241,243,236,.08)}
+
+  .hero-bild{margin:0;align-self:end}
+  .hero-bild img{width:100%;height:auto;display:block;aspect-ratio:3/2;object-fit:cover;
+    object-position:center;border:6px solid var(--papier);border-bottom:0}
+
+  /* ---------- Logo ---------- */
+  .marke{display:inline-flex;align-items:center;gap:12px}
+  #logo{height:46px;width:auto;display:block}
+  body.hat-logo .marke-text{display:none}
+  footer #logo-fuss{height:34px;width:auto;opacity:.85}
+  body:not(.hat-logo) #logo-fuss{display:none}
+
+  /* ---------- Bewertung ---------- */
+  .bewertung{display:flex;align-items:center;gap:11px;margin-top:20px;font-size:.95rem;color:#c3d2c2;flex-wrap:wrap}
+  .sterne{position:relative;display:inline-block;color:rgba(241,243,236,.28);letter-spacing:2px;font-size:1.05rem}
+  .sterne-voll{position:absolute;left:0;top:0;overflow:hidden;white-space:nowrap;color:var(--ocker)}
+
+  /* ---------- Stimmen ---------- */
+  .stimmen{background:var(--papier-2)}
+  .stimmen-kopf{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .gesamtnote{text-align:right}
+  .gesamtnote .zahl{font-family:"Bodoni Moda",serif;font-size:2.6rem;line-height:1;display:block}
+  .gesamtnote .quelle{font-size:.9rem;color:var(--stein)}
+  .sterne-hell{color:#c2cabd}
+  .stimmen-liste{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;margin-top:16px}
+  .stimmen-liste figure{margin:0;padding:34px 0;border-top:1px solid #d3dacb}
+  .stimmen-liste blockquote{margin:0;font-family:"Bodoni Moda",serif;font-size:1.35rem;line-height:1.4;
+    font-style:italic;max-width:30ch}
+  .stimmen-liste figcaption{margin-top:14px;font-size:.9rem;color:var(--stein)}
+  .stimmen-liste figcaption b{font-weight:600;color:var(--tief)}
+  .stimmen-fuss{margin-top:32px;font-size:.92rem;color:var(--stein)}
+  .stimmen-fuss a{border-bottom:1px solid var(--ocker);text-decoration:none}
+
+  .band{margin:0}
+  .band img{width:100%;height:clamp(220px,34vw,400px);object-fit:cover;object-position:center 58%;display:block}
+
+  /* ---------- Karte ---------- */
+  .karte{margin-top:52px;position:relative;border:1px solid var(--papier-2);background:var(--papier-2);
+    aspect-ratio:16/8;overflow:hidden}
+  .karte iframe{width:100%;height:100%;border:0;display:block}
+  .karte-platzhalter{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:14px;text-align:center;padding:26px;background:var(--papier-2)}
+  .karte-platzhalter p{margin:0;max-width:38ch;color:var(--stein);font-size:.95rem}
+  .karte-platzhalter button{font:inherit;font-weight:600;cursor:pointer;padding:12px 22px;border:0;
+    border-radius:999px;background:var(--tief);color:var(--papier)}
+  .karte-platzhalter button:hover{background:var(--tief-hell)}
+
+  /* ---------- Abschnitte ---------- */
+  section{padding:88px 0}
+  .zeiten{background:var(--papier)}
+  .zeiten .raster{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+
+  table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+  th,td{text-align:left;padding:13px 4px;border-bottom:1px solid var(--papier-2)}
+  th{font-weight:500;width:42%}
+  td{color:var(--tief)}
+  tr.geschlossen th,tr.geschlossen td{color:var(--stein)}
+  tr.heute{background:#e8eee4}
+  tr.heute th{position:relative;font-weight:600}
+  tr.heute th::before{content:"";position:absolute;left:-14px;top:50%;transform:translateY(-50%);
+    width:5px;height:5px;border-radius:50%;background:var(--mohn)}
+  .heute-hinweis{font-size:.9rem;color:var(--stein);margin-top:14px}
+
+  .hinweis{border-left:3px solid var(--ocker);padding:4px 0 4px 20px;color:var(--stein);font-size:1rem}
+
+  .angebot{background:var(--tief);color:var(--papier)}
+  .angebot h2{color:var(--papier)}
+  .liste{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;margin-top:48px;
+    background:rgba(241,243,236,.16)}
+  .liste article{background:var(--tief);padding:30px 26px 34px}
+  .liste h3{color:var(--ocker);margin-bottom:10px}
+  .liste p{color:#cbd6ca;font-size:.99rem;margin:0}
+
+  .kontakt .raster{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px}
+  .karte-zeile{margin:0 0 22px}
+  .karte-zeile span{display:block;font-size:.88rem;color:var(--stein);letter-spacing:.02em}
+  .karte-zeile strong{font-weight:500;font-size:1.15rem}
+  .karte-zeile a{text-decoration:none;border-bottom:1px solid var(--ocker)}
+
+  footer{background:var(--tief);color:#9fb09e;padding:44px 0;font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:#cfd8ce}
+
+  @media (max-width:820px){
+    .hero-inhalt{grid-template-columns:1fr;padding-top:40px}
+    .hero-bild img{aspect-ratio:3/2;object-position:center;margin-top:34px}
+    .zeiten .raster,.kontakt .raster{grid-template-columns:1fr;gap:38px}
+    section{padding:64px 0}
+    .karte{aspect-ratio:4/3;margin-top:38px}
+    .stimmen-liste{grid-template-columns:1fr;gap:0}
+    .stimmen-liste blockquote{font-size:1.2rem;max-width:none}
+    .gesamtnote{text-align:left}
+    #logo{height:38px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kopfzeile">
+      <a class="marke" href="#">
+        <!-- Logo: Datei "logo.png" (oder .svg) neben die index.html legen.
+             Fehlt sie, erscheint automatisch der Schriftzug. -->
+        <img id="logo" src="logo.png" alt="Rothenberger Blumenturm"
+             onload="document.body.classList.add('hat-logo')"
+             onerror="this.remove()">
+        <span class="marke-text">Rothenberger Blumenturm</span>
+      </a>
+      <nav>
+        <a href="#zeiten">Öffnungszeiten</a>
+        <a href="#stimmen">Bewertungen</a>
+        <a href="#angebot">Angebot</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+
+    <div class="hero-inhalt">
+      <div>
+        <h1><span class="erste">Rothenberger</span>Blumenturm</h1>
+        <p class="lead">Ihr Blumenfachgeschäft in Rothenbergen. Schnittblumen, Sträuße und Pflanzen – gebunden, während Sie warten.</p>
+
+        <div class="status" id="status" role="status">
+          <span class="punkt" id="punkt"></span>
+          <span id="status-text">Öffnungszeiten werden geladen …</span>
+        </div>
+
+        <p class="bewertung">
+          <span class="sterne" aria-hidden="true">★★★★★<span class="sterne-voll" style="width:92%">★★★★★</span></span>
+          <span>4,6 von 5 Sternen aus 64 Google-Bewertungen</span>
+        </p>
+
+        <div class="knopfreihe">
+          <a class="knopf voll" href="tel:+49605153105">06051 53105 anrufen</a>
+          <a class="knopf linie" href="mailto:blumenturm-rothenbergen@gmx.de">E-Mail schreiben</a>
+        </div>
+      </div>
+
+      <figure class="hero-bild">
+        <img src="bilder/strauss-hero.jpg" width="768" height="512"
+             alt="Bunter Blumenstrauß aus Rosen, Nelken und Eukalyptus in Papier gebunden">
+      </figure>
+    </div>
+  </div>
+</header>
+
+<section class="zeiten" id="zeiten">
+  <div class="wrap">
+    <div class="raster">
+      <div>
+        <h2>Öffnungszeiten</h2>
+        <p class="hinweis" style="margin-top:26px">Mittags schließen wir von 12:30 bis 14:30. Samstags sind wir durchgehend bis 14:00 für Sie da.</p>
+      </div>
+      <div>
+        <table id="zeitentabelle">
+          <tbody>
+            <tr data-tag="1" class="geschlossen"><th>Montag</th><td>geschlossen</td></tr>
+            <tr data-tag="2" class="geschlossen"><th>Dienstag</th><td>geschlossen</td></tr>
+            <tr data-tag="3"><th>Mittwoch</th><td>08:30–12:30 &nbsp;·&nbsp; 14:30–18:00</td></tr>
+            <tr data-tag="4"><th>Donnerstag</th><td>08:30–12:30 &nbsp;·&nbsp; 14:30–18:00</td></tr>
+            <tr data-tag="5"><th>Freitag</th><td>08:30–12:30 &nbsp;·&nbsp; 14:30–18:00</td></tr>
+            <tr data-tag="6"><th>Samstag</th><td>08:30–14:00</td></tr>
+            <tr data-tag="0" class="geschlossen"><th>Sonntag</th><td>geschlossen</td></tr>
+          </tbody>
+        </table>
+        <p class="heute-hinweis">An Feiertagen können die Zeiten abweichen. Rufen Sie im Zweifel kurz an.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stimmen" id="stimmen">
+  <div class="wrap">
+    <div class="stimmen-kopf">
+      <h2>Was Kunden sagen</h2>
+      <p class="gesamtnote">
+        <span class="zahl">4,6</span>
+        <span class="sterne sterne-hell" aria-hidden="true">★★★★★<span class="sterne-voll" style="width:92%">★★★★★</span></span>
+        <span class="quelle">aus 64 Google-Bewertungen</span>
+      </p>
+    </div>
+
+    <div class="stimmen-liste">
+      <figure>
+        <blockquote>Hier finde ich immer was Besonderes.</blockquote>
+        <figcaption><b>Barbara Heck</b> · 5 von 5 Sternen bei Google</figcaption>
+      </figure>
+      <figure>
+        <blockquote>Individuelle Wünsche werden hier erfüllt. Klein, aber fein.</blockquote>
+        <figcaption><b>Bebe</b> · 5 von 5 Sternen bei Google</figcaption>
+      </figure>
+      <figure>
+        <blockquote>Sehr netter Laden, große Auswahl, exzellenter Service.</blockquote>
+        <figcaption><b>Jarmen Kell</b> · 5 von 5 Sternen bei Google</figcaption>
+      </figure>
+      <figure>
+        <blockquote>Schöner kleiner Blumenladen, freundliches Personal, gute Auswahl.</blockquote>
+        <figcaption><b>Bernd Haslauer</b> · 5 von 5 Sternen bei Google</figcaption>
+      </figure>
+    </div>
+
+    <p class="stimmen-fuss">Auszüge aus Google-Bewertungen.
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Rothenberger+Blumenturm%2C+Fuldaer+Stra%C3%9Fe+13%2C+63584+Gr%C3%BCndau-Rothenbergen" target="_blank" rel="noopener">Alle Bewertungen ansehen</a>
+    </p>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="bilder/strauss-vase.jpg" width="768" height="512" loading="lazy"
+       alt="Frühlingsstrauß mit Pfingstrosen und Flieder in einer Glasvase im Ladengeschäft">
+</figure>
+
+<section class="angebot" id="angebot">
+  <div class="wrap">
+    <h2>Was wir binden</h2>
+    <div class="liste">
+      <article>
+        <h3>Sträuße nach Wunsch</h3>
+        <p>Sagen Sie uns Anlass, Farben und Budget – den Rest binden wir vor Ort.</p>
+      </article>
+      <article>
+        <h3>Hochzeitsfloristik</h3>
+        <p>Brautstrauß, Anstecker und Tischschmuck. Am besten früh anfragen.</p>
+      </article>
+      <article>
+        <h3>Trauerfloristik</h3>
+        <p>Kränze, Gestecke und Schleifenbeschriftung, auf Wunsch zum Termin geliefert.</p>
+      </article>
+      <article>
+        <h3>Pflanzen</h3>
+        <p>Zimmerpflanzen, Beetpflanzen und Töpfe für Balkon und Garten.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <h2>So finden Sie uns</h2>
+    <div class="raster">
+      <div>
+        <p class="karte-zeile"><span>Inhaber</span><strong>Oliver Below</strong></p>
+        <p class="karte-zeile"><span>Adresse</span><strong>Fuldaer Straße 13<br>63584 Gründau-Rothenbergen</strong></p>
+        <p class="karte-zeile"><span>Telefon</span><strong><a href="tel:+49605153105">06051 53105</a></strong></p>
+        <p class="karte-zeile"><span>E-Mail</span><strong><a href="mailto:blumenturm-rothenbergen@gmx.de">blumenturm-rothenbergen@gmx.de</a></strong></p>
+        <p class="karte-zeile"><span>Fax</span><strong>06051 884181</strong></p>
+        <p class="karte-zeile"><span>Route</span><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Fuldaer+Stra%C3%9Fe+13%2C+63584+Gr%C3%BCndau-Rothenbergen" target="_blank" rel="noopener">In Google Maps öffnen</a></strong></p>
+      </div>
+      <div>
+        <p>Wir liegen im Ortsteil Rothenbergen direkt an der Fuldaer Straße, Parkplätze finden Sie in unmittelbarer Nähe.</p>
+        <p>Für größere Aufträge – Hochzeit, Trauerfloristik oder Blumen fürs Büro – rufen Sie uns am besten vorher an. Dann legen wir die passende Ware für Sie zurück.</p>
+      </div>
+    </div>
+
+    <div class="karte" id="karte">
+      <div class="karte-platzhalter" id="karte-platzhalter">
+        <p>Die Karte kommt von Google. Beim Laden wird Ihre IP-Adresse an Google übertragen.</p>
+        <button type="button" id="karte-laden">Karte laden</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>
+      <img id="logo-fuss" src="logo.png" alt="" onerror="this.remove()">
+      Rothenberger Blumenturm, Inh. Oliver Below · Fuldaer Straße 13, 63584 Gründau-Rothenbergen
+    </span>
+    <span>
+      <a href="tel:+49605153105">06051 53105</a> ·
+      <a href="mailto:blumenturm-rothenbergen@gmx.de">E-Mail</a> · Impressum
+    </span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Öffnungszeiten in Dezimalstunden, Schlüssel = Wochentag (0 = Sonntag)
+  var zeiten = {
+    3: [[8.5, 12.5], [14.5, 18]],
+    4: [[8.5, 12.5], [14.5, 18]],
+    5: [[8.5, 12.5], [14.5, 18]],
+    6: [[8.5, 14]]
+  };
+  var namen = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+
+  // Immer die Ortszeit in Gründau verwenden, egal wo der Besucher sitzt
+  function jetztInBerlin() {
+    var teile = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Berlin', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
+    }).formatToParts(new Date());
+    var w = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}, tag = 0, h = 0, m = 0;
+    teile.forEach(function (t) {
+      if (t.type === 'weekday') tag = w[t.value];
+      if (t.type === 'hour') h = parseInt(t.value, 10) % 24;
+      if (t.type === 'minute') m = parseInt(t.value, 10);
+    });
+    return { tag: tag, stunde: h + m / 60 };
+  }
+
+  function uhr(dez) {
+    var h = Math.floor(dez), m = Math.round((dez - h) * 60);
+    return h + ':' + (m < 10 ? '0' + m : m);
+  }
+
+  function naechsteOeffnung(tag, stunde) {
+    for (var i = 0; i < 8; i++) {
+      var t = (tag + i) % 7, spannen = zeiten[t];
+      if (!spannen) continue;
+      for (var j = 0; j < spannen.length; j++) {
+        if (i > 0 || spannen[j][0] > stunde) {
+          var wann = i === 0 ? 'heute' : (i === 1 ? 'morgen' : 'am ' + namen[t]);
+          return wann + ' um ' + uhr(spannen[j][0]);
+        }
+      }
+    }
+    return null;
+  }
+
+  var n = jetztInBerlin();
+  var offen = null;
+  (zeiten[n.tag] || []).forEach(function (s) {
+    if (n.stunde >= s[0] && n.stunde < s[1]) offen = s;
+  });
+
+  var punkt = document.getElementById('punkt');
+  var text = document.getElementById('status-text');
+
+  if (offen) {
+    punkt.className = 'punkt offen';
+    text.textContent = 'Jetzt geöffnet – bis ' + uhr(offen[1]) + ' Uhr';
+  } else {
+    punkt.className = 'punkt zu';
+    var next = naechsteOeffnung(n.tag, n.stunde);
+    text.textContent = next ? 'Gerade geschlossen – wieder ' + next + ' Uhr' : 'Gerade geschlossen';
+  }
+
+  var zeile = document.querySelector('#zeitentabelle tr[data-tag="' + n.tag + '"]');
+  if (zeile) zeile.classList.add('heute');
+
+  // Karte erst auf Klick laden (keine Datenübertragung an Google vorher).
+  // Soll die Karte sofort erscheinen: einfach karteLaden() direkt aufrufen.
+  function karteLaden() {
+    var rahmen = document.createElement('iframe');
+    rahmen.src = 'https://www.google.com/maps?q=Fuldaer+Stra%C3%9Fe+13%2C+63584+Gr%C3%BCndau-Rothenbergen&z=16&output=embed';
+    rahmen.title = 'Karte mit dem Standort Fuldaer Straße 13, Gründau-Rothenbergen';
+    rahmen.loading = 'lazy';
+    rahmen.referrerPolicy = 'no-referrer-when-downgrade';
+    rahmen.allowFullscreen = true;
+    var platz = document.getElementById('karte-platzhalter');
+    document.getElementById('karte').appendChild(rahmen);
+    if (platz) platz.remove();
+  }
+  var knopf = document.getElementById('karte-laden');
+  if (knopf) knopf.addEventListener('click', karteLaden);
+})();
+</script>
+</body>
+</html>
